@@ -1,0 +1,188 @@
+/* Reseteo de márgenes y paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffe6f2; /* Rosa claro de fondo */
+  color: #333;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* Estilos para la navegación */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ff66b2; /* Rosa fuerte */
+  padding: 15px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav button, .dropbtn {
+  background-color: #ff3385; /* Rosa oscuro */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+nav button:hover, .dropbtn:hover {
+  background-color: #ff1a6f; /* Rosa más oscuro */
+}
+
+nav .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ff66b2;
+  min-width: 160px;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+nav .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+nav .dropdown-content button {
+  padding: 10px;
+  background-color: #ff3385;
+  color: white;
+  border: none;
+  width: 100%;
+  text-align: left;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav .dropdown-content button:hover {
+  background-color: #ff1a6f;
+}
+
+/* Estilos para las tarjetas de productos */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.product-card {
+  background-color: #ffffff;
+  border: 1px solid #ff66b2;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.product-card img:hover {
+  transform: scale(1.1);
+}
+
+.product-card h3 {
+  margin-top: 10px;
+  color: #ff3385;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.product-card p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.product-card p:last-child {
+  margin-top: 10px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+button {
+  background-color: #ff3385;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff1a6f;
+}
+
+/* Estilo para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.modal .close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #ff3385;
+  cursor: pointer;
+}
+
+.modal .close:hover {
+  color: #ff1a6f;
+}
+
+/* Estilo para la cantidad de productos */
+.quantity {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #ff3385;
+}
+
+/* Efecto para las tarjetas de productos al pasar el mouse */
+.product-card:hover .quantity {
+  color: #ff1a6f;
+}
+
+/* Fondo de la página */
+body {
+  background-color: #ffe6f2; /* Fondo rosa claro */
+}
+

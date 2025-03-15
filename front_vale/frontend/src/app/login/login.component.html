@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión</title>
+  <link rel="icon" href="https://i.pinimg.com/originals/9c/ab/b9/9cabb9f45ee1b8f00a4a1ca82d6aaab2.jpg" type="image/jpeg">
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Inicia Sesión</h2>
+    <div class="login-form">
+      <input type="email" id="login-email" placeholder="Correo Electrónico" required>
+      <input type="password" id="login-password" placeholder="Contraseña" required>
+      <button onclick="login()">Entrar</button>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      const users = {
+        "admin@tienda.com": "admin123",
+        "empleado@tienda.com": "empleado123",
+        "cliente@tienda.com": "cliente123"
+      };
+
+      if (users[email] && users[email] === password) {
+        alert(`¡Bienvenido, ${email.split('@')[0]}!`);
+        window.location.href = `./${email.split('@')[0]}/${email.split('@')[0]}.component`;
+      } else {
+        alert('Correo o contraseña incorrectos.');
+      }
+    }
+  </script>
+
+</body>
+</html>

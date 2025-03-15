@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reabastecimiento de Productos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Reabastecimiento de Productos</h1>
+        </header>
+
+        <section class="product-list">
+            <h2>Productos en Inventario</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad Actual</th>
+                        <th>Actualizar Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Producto A</td>
+                        <td id="product-a-quantity">50</td>
+                        <td>
+                            <input type="number" id="product-a-update" placeholder="Cantidad">
+                            <button onclick="updateQuantity('product-a')">Actualizar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Producto B</td>
+                        <td id="product-b-quantity">30</td>
+                        <td>
+                            <input type="number" id="product-b-update" placeholder="Cantidad">
+                            <button onclick="updateQuantity('product-b')">Actualizar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Producto C</td>
+                        <td id="product-c-quantity">20</td>
+                        <td>
+                            <input type="number" id="product-c-update" placeholder="Cantidad">
+                            <button onclick="updateQuantity('product-c')">Actualizar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
