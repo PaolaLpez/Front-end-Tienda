@@ -10,6 +10,7 @@
     <div class="container">
         <header>
             <h1>Reabastecimiento de Productos</h1>
+            <p>Administra y actualiza las cantidades de los productos en exhibición.</p>
         </header>
 
         <section class="product-list">
@@ -20,36 +21,18 @@
                         <th>Producto</th>
                         <th>Cantidad Actual</th>
                         <th>Actualizar Cantidad</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Producto A</td>
-                        <td id="product-a-quantity">50</td>
-                        <td>
-                            <input type="number" id="product-a-update" placeholder="Cantidad">
-                            <button onclick="updateQuantity('product-a')">Actualizar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Producto B</td>
-                        <td id="product-b-quantity">30</td>
-                        <td>
-                            <input type="number" id="product-b-update" placeholder="Cantidad">
-                            <button onclick="updateQuantity('product-b')">Actualizar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Producto C</td>
-                        <td id="product-c-quantity">20</td>
-                        <td>
-                            <input type="number" id="product-c-update" placeholder="Cantidad">
-                            <button onclick="updateQuantity('product-c')">Actualizar</button>
-                        </td>
-                    </tr>
+                <tbody id="product-table-body">
+                    <!-- Los productos se cargarán aquí dinámicamente -->
                 </tbody>
             </table>
         </section>
+
+        <div id="notification" class="notification hidden">
+            <p id="notification-message"></p>
+        </div>
     </div>
 
     <script src="scripts.js"></script>

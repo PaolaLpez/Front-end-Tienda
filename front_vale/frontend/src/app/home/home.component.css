@@ -8,13 +8,13 @@
 /* Estilos generales */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #ffe6f2; /* Rosa claro de fondo */
+  background-color: #ffe6f2; /* Fondo rosa claro */
   color: #333;
   padding: 20px;
   line-height: 1.6;
 }
 
-/* Estilos para la navegación */
+/* Barra de navegación */
 nav {
   display: flex;
   justify-content: space-between;
@@ -23,6 +23,15 @@ nav {
   padding: 15px 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo {
+  flex-grow: 1;
+}
+
+nav .logo-img {
+  width: 50px;
+  border-radius: 5px;
 }
 
 nav button, .dropbtn {
@@ -66,6 +75,27 @@ nav .dropdown-content button {
 
 nav .dropdown-content button:hover {
   background-color: #ff1a6f;
+}
+
+.session-btn {
+  background-color: #ff1a6f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 20px; /* Espacio entre Categorías y Iniciar Sesión */
+}
+
+.session-btn i {
+  font-size: 16px;
+}
+
+.session-btn:hover {
+  background-color: #e6004c;
 }
 
 /* Estilos para las tarjetas de productos */
@@ -118,21 +148,6 @@ nav .dropdown-content button:hover {
   font-style: italic;
 }
 
-button {
-  background-color: #ff3385;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #ff1a6f;
-}
-
 /* Estilo para el modal */
 .modal {
   display: none;
@@ -153,6 +168,7 @@ button:hover {
   max-height: 80%;
   border-radius: 10px;
   background-color: #fff;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .modal .close {
@@ -169,20 +185,8 @@ button:hover {
   color: #ff1a6f;
 }
 
-/* Estilo para la cantidad de productos */
-.quantity {
-  font-size: 1rem;
-  margin-top: 10px;
-  color: #ff3385;
+/* Animación de apertura del modal */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-
-/* Efecto para las tarjetas de productos al pasar el mouse */
-.product-card:hover .quantity {
-  color: #ff1a6f;
-}
-
-/* Fondo de la página */
-body {
-  background-color: #ffe6f2; /* Fondo rosa claro */
-}
-

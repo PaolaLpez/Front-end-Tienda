@@ -3,58 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel de Administración - Agregar Lote</title>
-  <link rel="icon" href="https://i.pinimg.com/originals/9c/ab/b9/9cabb9f45ee1b8f00a4a1ca82d6aaab2.jpg" type="image/jpeg">
+  <title>Panel de Administración - Almacenista</title>
+  <link rel="icon" href="https://i.pinimg.com/originals/9c/ab/b9/9c9abb9f45ee1b8f00a4a1ca82d6aaab2.jpg" type="image/jpeg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <nav>
-    <h1>Panel de Administración</h1>
+    <h1>Panel de Administración - Almacenista</h1>
   </nav>
 
   <div class="admin-container">
-    <h2>Agregar Nuevo Lote</h2>
+    <h2>Gestión de Productos y Lotes</h2>
 
-    <!-- Formulario para agregar lote -->
-    <form id="add-lot-form">
+    <!-- Formulario para registrar producto -->
+    <form id="add-product-form">
+      <h3>Registrar Producto</h3>
       <div class="form-group">
         <label for="product-name">Nombre del Producto</label>
         <input type="text" id="product-name" name="product-name" required placeholder="Nombre del producto">
       </div>
 
       <div class="form-group">
+        <label for="product-category">Categoría</label>
+        <select id="product-category" name="product-category" required>
+          <!-- Aquí se cargarán las categorías desde la base de datos -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="product-brand">Marca</label>
+        <select id="product-brand" name="product-brand" required>
+          <!-- Aquí se cargarán las marcas desde la base de datos -->
+        </select>
+      </div>
+
+      <div class="form-group">
         <label for="supplier-name">Proveedor</label>
-        <input type="text" id="supplier-name" name="supplier-name" required placeholder="Nombre del proveedor">
+        <select id="supplier-name" name="supplier-name" required>
+          <!-- Aquí se cargarán los proveedores desde la base de datos -->
+        </select>
       </div>
 
       <div class="form-group">
-        <label for="registration-date">Fecha de Registro</label>
-        <input type="date" id="registration-date" name="registration-date" required>
+        <label for="product-price">Precio</label>
+        <input type="number" id="product-price" name="product-price" required placeholder="Precio del producto" min="0">
       </div>
 
       <div class="form-group">
-        <label for="expiration-date">Fecha de Caducidad</label>
-        <input type="date" id="expiration-date" name="expiration-date" required>
+        <label for="product-quantity">Cantidad de Piezas</label>
+        <input type="number" id="product-quantity" name="product-quantity" required placeholder="Cantidad de piezas" min="1">
       </div>
 
       <div class="form-group">
-        <label for="barcode">Código de Barra</label>
-        <input type="text" id="barcode" name="barcode" required placeholder="Código de barras del producto">
+        <label for="product-expiration">Fecha de Caducidad</label>
+        <input type="date" id="product-expiration" name="product-expiration" required>
       </div>
 
       <div class="form-group">
-        <label for="quantity">Cantidad de Piezas</label>
-        <input type="number" id="quantity" name="quantity" required placeholder="Cantidad de piezas" min="1">
+        <label for="product-image">Imagen del Producto</label>
+        <input type="file" id="product-image" name="product-image" accept="image/*">
       </div>
 
-      <button type="submit" class="btn-submit">Agregar Lote</button>
-
-      <!-- Mensajes de error o éxito -->
+      <button type="submit" class="btn-submit">Registrar Producto</button>
       <div id="message" class="error-message"></div>
     </form>
 
-    <div id="success-message" class="success-message" style="display: none;">Lote agregado exitosamente.</div>
+    <!-- Formulario para eliminar producto -->
+    <form id="delete-product-form">
+      <h3>Eliminar Producto</h3>
+      <div class="form-group">
+        <label for="delete-product-id">ID del Producto</label>
+        <input type="text" id="delete-product-id" name="delete-product-id" required placeholder="ID del producto a eliminar">
+      </div>
+
+      <div class="form-group">
+        <label for="delete-type">Tipo de Eliminación</label>
+        <select id="delete-type" name="delete-type" required>
+          <option value="physical">Baja Física</option>
+          <option value="temporary">Baja Temporal</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-submit">Eliminar Producto</button>
+    </form>
+
+    <!-- Buscar Producto -->
+    <h3>Buscar Producto</h3>
+    <input type="text" id="search-product" name="search-product" placeholder="Buscar producto por nombre, código o categoría">
+    <button id="search-btn" class="btn-submit">Buscar</button>
+
+    <!-- Actualizar Producto -->
+    <form id="update-product-form">
+      <h3>Actualizar Producto</h3>
+      <div class="form-group">
+        <label for="update-product-id">ID del Producto</label>
+        <input type="text" id="update-product-id" name="update-product-id" required placeholder="ID del producto a actualizar">
+      </div>
+
+      <div class="form-group">
+        <label for="update-price">Nuevo Precio</label>
+        <input type="number" id="update-price" name="update-price" placeholder="Nuevo precio del producto" min="0">
+      </div>
+
+      <div class="form-group">
+        <label for="update-quantity">Nueva Cantidad</label>
+        <input type="number" id="update-quantity" name="update-quantity" placeholder="Nueva cantidad de producto" min="1">
+      </div>
+
+      <div class="form-group">
+        <label for="update-expiration">Nueva Fecha de Caducidad</label>
+        <input type="date" id="update-expiration" name="update-expiration">
+      </div>
+
+      <button type="submit" class="btn-submit">Actualizar Producto</button>
+    </form>
+
+    <!-- Mostrar resultados -->
+    <div id="product-results" class="results"></div>
+
+    <!-- Mensajes de éxito o error -->
+    <div id="success-message" class="success-message" style="display: none;">Acción completada exitosamente.</div>
+    <div id="error-message" class="error-message" style="display: none;">Error, por favor intente nuevamente.</div>
   </div>
 
   <script src="script.js"></script>
